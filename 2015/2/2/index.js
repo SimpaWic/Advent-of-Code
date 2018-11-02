@@ -11,7 +11,7 @@ data.forEach(el => {
         w = parseInt(el[1]),
         h = parseInt(el[2]);
 
-    sum += 2*l*w + 2*w*h + 2*h*l + l*w;
+    sum += l*2 + w*2 + l*w*h;
 });
 
 console.log(sum);
