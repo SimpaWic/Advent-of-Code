@@ -26,9 +26,19 @@ for(let i = 0; i < seconds; i++) {
             el[5] = 0;
         }
     });
-    let points = [],
-        first = 0;
-    raindeers.forEach(el => {
 
+    raindeers = raindeers.sort((a, b) => {
+        if(a[6] < b[6]) return 1;
+        if(a[6] > b[6]) return -1;
+        return 0;
+    });
+
+    let first = raindeers[0][6];
+    raindeers.forEach(el => {
+        if(el[6] === first) {
+            el[7]++;
+        }
     });
 }
+
+console.log(raindeers);
