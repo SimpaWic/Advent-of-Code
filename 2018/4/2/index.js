@@ -39,27 +39,18 @@ data.forEach(el => {
     }
 }); 
 
-let mostSleep = 0;
 
+let mostTimesSleep = 0,
+    freq = 0;
 
 guards.forEach((value, key) => {
-    let temp = 0;
-    value.forEach(el => {
-        temp += el;
+    value.forEach((el, index) => {
+        if(el > mostTimesSleep) {
+            mostTimesSleep = el;
+            freq = index;
+            currentGuardId = key;
+        }
     });
-    if (temp > mostSleep) {
-        mostSleep = temp;
-        currentGuardId = key;
-    }
 });
 
-let minute = 0,
-    times = 0;
-guards.get(currentGuardId).forEach((el, index) => {
-    if (el > times) {
-        times = el;
-        minute = index;
-    }
-});
-
-console.log(currentGuardId*minute);
+console.log(currentGuardId*freq);
